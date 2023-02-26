@@ -13,7 +13,6 @@ log = Logger.new(STDOUT)
 get '/api/v1/exams' do
   return Exam.all.to_json
 end
-log.info "API ready"
 
 get '/hello' do
   'Hello world!'

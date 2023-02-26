@@ -7,6 +7,9 @@ services:
       - 3000:3000
     depends_on:
       - db
+    networks:
+      - app
+    command: ruby server.rb
 
   db:
     image: postgres
@@ -19,7 +22,13 @@ services:
       - 5432:5432
     volumes:
       - pgdata:/var/lib/postgresql/data
+    networks:
+      - app
 
 volumes:
   pgdata:
     driver: local
+
+networks:
+  app:
+    driver: bridge

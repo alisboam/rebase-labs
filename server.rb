@@ -4,9 +4,10 @@ require './model/exam.rb'
 
 log = Logger.new(STDOUT)
 
-Exam.load_from_csv("./data.csv")
-
-log.info('Data copied into db')
+if Exam.count == 0
+  Exam.load_from_csv("./data.csv")
+	log.info('Data copied into db')
+end
 
 Rack::Handler::Puma.run(
   Sinatra::Application,

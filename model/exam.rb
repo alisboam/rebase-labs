@@ -1,6 +1,6 @@
 class Exam < ActiveRecord::Base
   acts_as_copy_target
-  
+
   def self.load_from_csv(csv_path)
 	Exam.copy_from csv_path, :map => {
 		'cpf' => 'cpf',

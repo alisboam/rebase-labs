@@ -10,41 +10,19 @@ Uma app web para listagem de exames médicos.
 * HTML
 * CSS
 
-## Download the image
+## Build the image
 
 ```shell
-
+docker build -t app -f docker/Dockerfile .
 ```
 
-## Running Docker-compose
+## Running Application
 
 To start Docker Compose:
 ```shell
-docker compose up
-```
-After the first time, however, we can simply use start to start the services:
-```shell
-docker-compose start
-```
-To safely stop the active services, and preserve containers, volumes, and networks:
-```shell
-docker-compose stop
+docker-compose -f docker/docker-compose.yml up
 ```
 
-To stop and remove all containers with only the exception of external volumes:
-```shell
-docker compose down
-```
-To see a list of running containers:
-```shell
- docker ps
-```
-
-To remove all volumes:
-
-```shell
-docker-compose down --volumes
-```
 ### API sample request
 
 ```shell
